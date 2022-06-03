@@ -1,0 +1,45 @@
+plugins {
+    id 'java'
+    id 'java-gradle-plugin'
+    id "com.gradle.plugin-publish" version "1.0.0-rc-2"
+}
+
+group 'dev.felnull'
+archivesBaseName = 'felnull-change-logger'
+version '1.0'
+
+pluginBundle {
+    website = ''
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+
+    implementation gradleApi()
+
+    implementation 'com.google.code.gson:gson:2.9.0'
+    implementation 'org.kohsuke:github-api:1.306'
+    implementation "dev.felnull:felnull-java-library:1.49"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+jar {
+    manifest {
+        attributes 'Implementation-Version': project.version
+    }
+}
+
+/*changelog {
+    trigger = "v3.13"
+    githubToken = "none";
+    repository = "TeamFelnull/IamMusicPlayer";
+    releaseType = "release";
+}*/
