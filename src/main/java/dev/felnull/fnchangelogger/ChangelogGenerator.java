@@ -45,13 +45,13 @@ public class ChangelogGenerator {
         File clogFol = new File(project.getBuildDir(), "changelog");
         clogFol.mkdirs();
 
-        project.getLogger().debug("Generate changelog markdown");
+        project.getLogger().info("Generate changelog markdown");
         File clogMd = new File(clogFol, "changelog.md");
         try (BufferedWriter writer = new BufferedWriter(new OutputStreamWriter(Files.newOutputStream(clogMd.toPath())))) {
             writer.write(changeLog.createMarkdown());
         }
 
-        project.getLogger().debug("Generate changelog json");
+        project.getLogger().info("Generate changelog json");
         File clogJson = new File(clogFol, "changelog.json");
         try (Writer writer = new OutputStreamWriter(new BufferedOutputStream(Files.newOutputStream(clogJson.toPath())))) {
             GSON.toJson(changeLog.createJson(), writer);

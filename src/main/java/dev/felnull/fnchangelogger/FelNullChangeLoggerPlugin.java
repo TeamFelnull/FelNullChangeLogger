@@ -17,7 +17,7 @@ public class FelNullChangeLoggerPlugin implements Plugin<Project> {
         task.setGroup(GROUP_NAME);
         task.doLast(tsk -> {
             if (extension.isDoSkip()) {
-                project.getLogger().debug("skipped");
+                project.getLogger().info("skipped");
                 return;
             }
             try {

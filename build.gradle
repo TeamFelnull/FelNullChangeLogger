@@ -2,6 +2,7 @@ plugins {
     id 'java'
     id 'java-gradle-plugin'
     id "com.gradle.plugin-publish" version "1.0.0-rc-2"
+//    id "dev.felnull.felnull-change-logger" version "1.0"
 }
 
 group 'dev.felnull'
@@ -9,7 +10,20 @@ archivesBaseName = 'felnull-change-logger'
 version '1.0'
 
 pluginBundle {
-    website = ''
+    website = 'https://github.com/TeamFelnull/FelNullChangeLogger'
+    vcsUrl = 'https://github.com/TeamFelnull/FelNullChangeLogger'
+    tags = ['felnull', 'changelog']
+}
+
+gradlePlugin {
+    plugins {
+        greetingsPlugin {
+            id = 'dev.felnull.felnull-change-logger'
+            displayName = 'FelNull Change Logger'
+            description = 'The ikisugi change logger'
+            implementationClass = 'dev.felnull.fnchangelogger.FelNullChangeLoggerPlugin'
+        }
+    }
 }
 
 repositories {
@@ -24,7 +38,7 @@ dependencies {
 
     implementation 'com.google.code.gson:gson:2.9.0'
     implementation 'org.kohsuke:github-api:1.306'
-    implementation "dev.felnull:felnull-java-library:1.49"
+    implementation "dev.felnull:felnull-java-library:1.51"
 }
 
 test {

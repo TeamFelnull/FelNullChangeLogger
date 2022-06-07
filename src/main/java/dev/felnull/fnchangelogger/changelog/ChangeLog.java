@@ -44,7 +44,7 @@ public class ChangeLog {
     }
 
     public static ChangeLog generateChangeLog(Logger logger, String githubToken, GHRepository repository, String tag, String releaseType, List<String> majorChanges) throws IOException {
-        logger.debug("Generate change log...");
+        logger.info("Generate change log...");
 
         List<GHTag> tags = repository.listTags().toList();
         Optional<GHTag> targetTag = tags.stream().filter(n -> tag.equals(n.getName())).findFirst();
@@ -63,7 +63,7 @@ public class ChangeLog {
 
         String branch = GitHubUtil.getBranchByCommit(branchByCommits, commit.getSHA1());
 
-        logger.debug("Find previous tag...");
+        logger.info("Find previous tag...");
 
         for (GHTag tagEntry : tags) {
             GHCommit tc = tagEntry.getCommit();
@@ -131,7 +131,7 @@ public class ChangeLog {
             }
         }).collect(Collectors.toList());
 
-        logger.debug("Create info...");
+        logger.info("Create info...");
 
         return new ChangeLog(releaseType, tag, preTag != null ? preTag.getName() : null, MajorChange.generateMajorChange(infos, majorChanges), Commits.generateCommits(repository.getFullName(), commits, infos));
     }
