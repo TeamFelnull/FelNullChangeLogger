@@ -1,13 +1,19 @@
 # FelNullChangeLogger
 
 The ikisugi change logger.  
-Automatically generate change logs from github commit logs.
+Automatically generate change logs from github commit logs.  
+
+[Gradle Plugin](https://plugins.gradle.org/plugin/dev.felnull.felnull-change-logger)
 
 ## Required code
 
 Write the following code in build.gradle.
 
 ```groovy
+plugins {
+  id "dev.felnull.felnull-change-logger" version "1.0"
+}
+
 changelog {
     //Requirement
     trigger = "v1.3" //The name (version) of the tag that triggered it
