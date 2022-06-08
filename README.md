@@ -16,13 +16,13 @@ plugins {
 
 changelog {
     //Requirement
-    trigger = "v1.3" //The name (version) of the tag that triggered it
-    githubToken = "ikisugithubtoken" //Github token
-    repository = "TeamFelnull/IamMusicPlayer" //Target repository
-    releaseType = "release" //Release type
+    trigger = "v1.3" //The name (version) of the tag that triggered it. Not required if running on GitHub Actions.
+    githubToken = "ikisugithubtoken" //Github token.
+    repository = "TeamFelnull/IamMusicPlayer" //Target repository. Not required if running on GitHub Actions.
+    releaseType = "release" //Release type.
     //Options
-    skip() //Does not perform task even if log generation is executed
-    triggerType = "tag" //It's a meaningless code for now
+    skip() //Does not perform task even if log generation is executed.
+    triggerType = "tag" //It's a meaningless code for now.
 }
 ```
 

@@ -2,12 +2,12 @@ plugins {
     id 'java'
     id 'java-gradle-plugin'
     id "com.gradle.plugin-publish" version "1.0.0-rc-2"
-//    id "dev.felnull.felnull-change-logger" version "1.0"
+    id "dev.felnull.felnull-change-logger" version "1.0"
 }
 
 group 'dev.felnull'
 archivesBaseName = 'felnull-change-logger'
-version '1.0'
+version '1.1'
 
 pluginBundle {
     website = 'https://github.com/TeamFelnull/FelNullChangeLogger'
@@ -50,10 +50,14 @@ jar {
         attributes 'Implementation-Version': project.version
     }
 }
-
-/*changelog {
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(8)
+    }
+}
+changelog {
     trigger = "v3.13"
     githubToken = "none";
     repository = "TeamFelnull/IamMusicPlayer";
     releaseType = "release";
-}*/
+}
