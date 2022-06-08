@@ -11,7 +11,7 @@ Write the following code in build.gradle.
 
 ```groovy
 plugins {
-  id "dev.felnull.felnull-change-logger" version "1.0"
+  id "dev.felnull.felnull-change-logger" version "1.1"
 }
 
 changelog {
